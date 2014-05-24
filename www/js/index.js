@@ -16,7 +16,7 @@ myapp.config(function($routeProvider){
 myapp.factory('myappfactory',function($rootScope,$http){
 
      var cameras      = [];
-     var flickerkey   = "ba9c933f0cfd9a4b8fd257935238698f";
+     var flickerkey   = "put your flickr api key here";
      var cambrandname = "nikon";  
      var camobj       = {};
      
