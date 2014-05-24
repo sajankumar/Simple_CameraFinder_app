@@ -1,0 +1,84 @@
+<!Doctype HTML>
+<html>
+<head>
+<meta charset="utf-8">  
+<meta name="viewport" content="width=device-width" initial-scale="1">  
+<title>Demo application</title>    
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+<script src="https://code.angularjs.org/1.2.9/angular.js"></script>
+<script src="https://code.angularjs.org/1.2.9/angular-route.js"></script>    
+<script src="http://localhost:3000/js/index.js"></script>  
+</head>
+    
+    
+<body ng-app="myapp">
+
+<div data-role="page" id="homepage">
+<div data-role="header" data-position="fixed">
+	<h2>Camera Finder</h2>	  
+	<a href="#homepage" onclick="window.location.href='http://localhost:3000'"  class="ui-btn  ui-btn-inline ui-btn-right">Refresh</a>
+
+</div>
+<div data-role="main" class="ui-content">
+	  <div ng-controller='first'>
+	  
+	   <div data-role="controlgroup" data-type="horizontal">
+	       <input type="text" ng-model="name" id="findname" placeholder="Camera name eg : Nikon" data-mini="true"/>
+           <a href="#" class="ui-btn ui-btn-inline" ng-click="search()"> Find </a>
+           
+	   </div>
+      <ul data-role="listview" data-inset="true">
+         <li data-role="list-divider" ng-repeat='cam in cameras'><a href="#campage" class="ui-btn ui-icon-arrow-r ui-btn-icon-right" ng-click="setData(this)">{{cam.name._content}}</a></li>  
+      </ul>
+    </div>
+	
+</div>
+<div data-role="footer" data-position="fixed">
+	
+ <div data-role="navbar">
+    <ul>
+      <li><a href="#homepage">Camera</a></li>
+      <li><a href="#photos">Recent Photos</a></li>
+    </ul>
+  </div>
+  
+</div>
+
+</div>
+<div data-role="page" data-dialog="true" id="photos">
+	<div data-role="header">
+		<h6>Recent photos</h6>
+	</div>
+	<div data-role="main" class="ui-content">
+	  <h1>Work in progress</h1>
+	</div>
+</div>
+ 
+<div data-role="page" data-dialog="true" id="campage" ng-controller='campagecontroller'>
+
+<div data-role="header" data-position="fixed">
+    <h6>{{camname}}</h6>
+</div>
+<div data-role="main" class="ui-content">
+	
+<div id="details">
+	
+	<p>{{megapixels}}</p>
+    <p>{{lcd_screen_size}}</p>
+    <p>{{memory_type}}</p>
+    
+    <p><img src={{small}}></img></p>
+    
+</div>
+
+
+</div>
+
+</div> 
+  
+    
+</body>    
+
+</html>
